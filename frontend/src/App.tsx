@@ -329,19 +329,32 @@ const teamsData = {
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>College Basketball Teams</h1>
-      </header>
-      <div className="team-cards">
-        {teamsData.teams.map((team) => (
-          <TeamCard 
-            key={team.tid}
-            school={team.school}
-            mascot={team.name}
-            location={`${team.city}, ${team.state}`}
-          />
-        ))}
-      </div>
+      <Header />
+      <TeamList />
+      <Footer />
+    </div>
+  );
+}
+
+function Header() {
+  return (
+    <header className="App-header">
+      <h1>College Basketball Teams</h1>
+    </header>
+  );
+}
+
+function TeamList() {
+  return (
+    <div className="team-cards">
+      {teamsData.teams.map((team) => (
+        <TeamCard 
+          key={team.tid}
+          school={team.school}
+          mascot={team.name}
+          location={`${team.city}, ${team.state}`}
+        />
+      ))}
     </div>
   );
 }
@@ -356,4 +369,12 @@ function TeamCard(props: { school: string | number | boolean | React.ReactElemen
   );
 }
 
-export default App; 
+function Footer() {
+  return (
+    <footer>
+      <p>&copy; 2023 College Basketball Teams</p>
+    </footer>
+  );
+}
+
+export default App;
